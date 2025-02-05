@@ -1,24 +1,22 @@
-# g++ -Wall -Wextra -Werror -std=c++23 -Wpedantic -c
-# Flags for the compiler
+# Compiler flags
 CPPFLAGS = -Wall -Wextra -Werror -std=c++23 -Wpedantic
 
-# Default target: depends on any .cpp file
+# Output executable file name (default: a.out)
+OUT = a.out
+
+# Default target: Compile and run the program
 all: $(OUT)
 	@echo "Compilation complete"
-	./$(OUT)  # Runs the output file after compilation
+	./$(OUT)  # Run the program after compilation
 
-# Rule to handle any .cpp file passed in the target
-%: %.cpp
-	g++ $(CPPFLAGS) $< 
-	./a.out${OUT}
+# Rule for compiling any .cpp files into object files
+$(OUT): $(SRC:.cpp=.o)
+	g++ $(CPPFLAGS) $(SRC) -o $(OUT)
 
 # Clean target to remove output and object files
 clean:
-	rm -f *.out
+	find . -type f \( -name '*.o' -o -name '*.out' -o -name 'a.out' -o -name '*.exe' -o -name '*.bin' -o -name '*.obj' -o -name 'core' \) -delete
 	@echo "Cleaned up"
 
-# Target for compilation without running the program
+# Compile only (no execution)
 compile: $(OUT)
-
-# Derives the output file name from the .cpp file
-OUT = $(basename $(TARGET))  # Removes the .cpp extension from the target

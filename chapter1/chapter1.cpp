@@ -2,6 +2,7 @@
 void chap1_5();
 void chap1_6();
 void chap1_11();
+void hiWorld();
 
 int main() {
   int x{ 1 };
@@ -10,7 +11,7 @@ int main() {
 
 
   std::cout << x << y << std::endl;
-
+  hiWorld();
   chap1_5();
   chap1_6();
   chap1_11();
