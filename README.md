@@ -6,7 +6,7 @@ You should not expect any high-quality, well-documented or well-structured repos
 
 ## Compilation
 
-The command I ussed for all compilation is:
+The command I used for all compilation is:
 
 ```bash
 clang++ -Wall -Wextra -Werror -std=c++2b -Wpedantic -o a.out <file>

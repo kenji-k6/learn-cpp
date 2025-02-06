@@ -282,6 +282,8 @@ std::cout << str << '\n';
 str = "Peach"; // reset the view
 std::cout << str << '\n';
 
+// !!! string_view can view a substring
+// !!! string_view may or may not be null-terminated
 }
 
 
